@@ -1,4 +1,4 @@
-name = "name"
+name = ("name")
 gender = ("gender")
 age = ("age")
 height_in = ("height")
