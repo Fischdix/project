@@ -1,2 +1,2 @@
 # project
-Random projects while I learn code
+Random projects while I learn python
