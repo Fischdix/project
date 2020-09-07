@@ -1,0 +1,51 @@
+#! /usr/bin/env python3
+
+# Team 1 login5.py project
+
+import getpass
+import logging
+import password
+#Psuedo Code
+#-----------
+
+# 1. Make uList with usernames
+# 2. Make pList with passwords
+# 3. pair username and passwords
+# 4. Failed login if the correct pair is not entered.
+# 5. Pep 8 formatting
+# 6. Error handling
+# 7. Code validation
+# 8. Logging
+
+#basicConfig configuration
+# asctime is human readable date time format
+logging.basicConfig(format = 'Date-Time : %(asctime)s : Line No. : %(lineno)d - %(message)s', filename = 'login5.log', level = logging.DEBUG, filemode = 'a')
+logging.debug("Logging 'active'")
+
+x=0
+uList = password.uList
+logindict = password.logindict
+userinput = ""
+
+while(x<5):
+    x=x+1
+    if (x == 4):
+        logging.warning("4 attempts failed")
+    if (x==5):
+        print("Please contact network administrator to reset your password.")
+        logging.critical("Account Locked")
+        break
+
+    try:
+        userinput = input("Username: ")
+        Password = getpass.getpass(prompt= "Password: ")
+    except:
+        print("Something went wrong. Try again.")
+        logging.error("something went wrong.")
+    if (userinput in uList and (logindict[userinput]==Password)):
+        print("Access granted.")
+        logging.info("Login Successfuly")
+        break
+    else:
+        print("Incorrect. Try again.")
+        logging.error('Usr/pass invalid')
