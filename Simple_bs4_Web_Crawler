@@ -1,0 +1,17 @@
+#import modules
+import requests
+from bs4 import BeautifulSoup as bs
+#add user input for website to start with 
+url = requests.get(input("URL?: ")) # stored in requests var # format like so "http://<url>"
+content = url.content
+soup = bs(content, 'html.parser')
+# open var to store data found
+links = []
+# loop looking for href tags with text embeded
+for a in soup.find_all('a', href=True):
+    if a.text:
+        links.append(a['href'])
+# informational prints
+print("Status: ", url.status_code)
+print("Header: ", url.headers)
+print("Spiders: ", links)
