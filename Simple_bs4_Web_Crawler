@@ -1,3 +1,10 @@
+#! /usr/bin/env python3
+# Simple Web Crawler using the beautiful soup module
+# Created by Jackson Fischer on 11/06/2020
+# Version 1.0
+
+
+
 #import modules
 import requests
 from bs4 import BeautifulSoup as bs
@@ -15,3 +22,11 @@ for a in soup.find_all('a', href=True):
 print("Status: ", url.status_code)
 print("Header: ", url.headers)
 print("Spiders: ", links)
+
+
+#As of 11/10/2020, This simple program just pulls all URLs found in the HTML of the website you provide. It was created in Thonny but I would prefer to make this an actual program.
+
+# Things to add
+#Actual "crawling" feature
+#Search for vital websites ( index, robots, login pages, parent directories, etc. etc. )
+#Add a GUI and output to a file
